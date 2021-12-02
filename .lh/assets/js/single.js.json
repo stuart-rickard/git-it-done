@@ -1,0 +1,22 @@
+{
+    "sourceFile": "assets/js/single.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1638406574075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1638406696745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,7 +84,8 @@\n var getRepoName = function() {\r\n   var queryString = document.location.search;\r\n   var repoName = queryString.split(\"=\")[1];\r\n   console.log(repoName);\r\n+  getRepoIssues(repoName);\r\n }\r\n \r\n getRepoName();\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1638406574075,
+            "name": "Commit-0",
+            "content": "var repoNameEl = document.querySelector(\"#repo-name\");\r\nvar issueContainerEl = document.querySelector(\"#issues-container\");\r\nvar limitWarningEl = document.querySelector(\"#limit-warning\");\r\n\r\nvar getRepoIssues = function(repo) {\r\n  // format the github api url\r\n  var apiUrl = \"https://api.github.com/repos/\" + repo + \"/issues?direction=asc\";\r\n\r\n  // make a get request to url\r\n  fetch(apiUrl).then(function(response) {\r\n    // request was successful\r\n    if (response.ok) {\r\n      response.json().then(function(data) {\r\n        displayIssues(data);\r\n\r\n        // check if api has paginated issues\r\n        if (response.headers.get(\"Link\")) {\r\n          displayWarning(repo);\r\n        }\r\n      });\r\n    }\r\n    else {\r\n      console.log(response);\r\n      alert(\"There was a problem with your request!\");\r\n    }\r\n  });\r\n};\r\n\r\nvar displayIssues = function(issues) {\r\n  if (issues.length === 0) {\r\n    issueContainerEl.textContent = \"This repo has no open issues!\";\r\n    return;\r\n  }\r\n\r\n  // loop over given issues\r\n  for (var i = 0; i < issues.length; i++) {\r\n    // create a link element to take users to the issue on github\r\n    var issueEl = document.createElement(\"a\");\r\n    issueEl.classList = \"list-item flex-row justify-space-between align-center\";\r\n    issueEl.setAttribute(\"href\", issues[i].html_url);\r\n    issueEl.setAttribute(\"target\", \"_blank\");\r\n    \r\n    // create span to hold issue title\r\n    var titleEl = document.createElement(\"span\");\r\n    titleEl.textContent = issues[i].title;\r\n    \r\n  \r\n    // append to container\r\n    issueEl.appendChild(titleEl);\r\n\r\n    // create a type element\r\n    var typeEl = document.createElement(\"span\");\r\n\r\n    // check if issue is an actual issue or a pull request\r\n    if (issues[i].pull_request) {\r\n      typeEl.textContent = \"(Pull request)\";\r\n    }\r\n    else {\r\n      typeEl.textContent = \"(Issue)\";\r\n    }\r\n\r\n    // append to container\r\n    issueEl.appendChild(typeEl);\r\n  \r\n    // append to the dom\r\n    issueContainerEl.appendChild(issueEl);\r\n  }\r\n};\r\n\r\nvar displayWarning = function(repo) {\r\n  // add text to warning container\r\n  limitWarningEl.textContent = \"To see more than 30 issues, visit \";\r\n\r\n  // create link element\r\n  var linkEl = document.createElement(\"a\");\r\n  linkEl.textContent = \"GitHub.com\";\r\n  linkEl.setAttribute(\"href\", \"https://github.com/\" + repo + \"/issues\");\r\n  linkEl.setAttribute(\"target\", \"_blank\");\r\n\r\n  // append to warning container\r\n  limitWarningEl.appendChild(linkEl);\r\n};\r\n\r\nvar getRepoName = function() {\r\n  var queryString = document.location.search;\r\n  var repoName = queryString.split(\"=\")[1];\r\n  console.log(repoName);\r\n}\r\n\r\ngetRepoName();"
+        }
+    ]
+}
