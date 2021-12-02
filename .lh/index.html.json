@@ -1,0 +1,18 @@
+{
+    "sourceFile": "index.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1638459572545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1638459572545,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n  <link href=\"https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap\" rel=\"stylesheet\">\r\n  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css\">\r\n  <link rel=\"stylesheet\" href=\"./assets/css/style.css\" />\r\n  <title>Git it Done</title>\r\n</head>\r\n\r\n<body class=\"flex-column min-100-vh\">\r\n  <header class=\"hero\">\r\n    <h1 class=\"app-title\"><i class=\"fab fa-github\"></i> Git it Done!</h1>\r\n    <p>Search for a GitHub user or click on a language to see a list of repositories and how many open issues they have!\r\n    </p>\r\n  </header>\r\n\r\n\r\n  <main class=\"flex-row justify-space-between\">\r\n    <div class=\"col-12 col-md-4\">\r\n\r\n      <div class=\"card\">\r\n        <h3 class=\"card-header text-uppercase\">Search By User</h3>\r\n        <form id=\"user-form\" class=\"card-body\">\r\n          <label class=\"form-label\" for=\"username\">Username</label>\r\n          <input name=\"username\" id=\"username\" type=\"text\" autofocus=\"true\" class=\"form-input\" />\r\n          <button type=\"submit\" class=\"btn\">Get User</button>\r\n        </form>\r\n      </div>\r\n      <div class=\"card\">\r\n        <h3 class=\"card-header text-uppercase\">Search By Topic:</h3>\r\n        <div class=\"card-body\" id=\"language-buttons\">\r\n          <button class=\"btn\" data-language=\"javascript\">JavaScript</button>\r\n          <button class=\"btn\" data-language=\"html\">HTML</button>\r\n          <button class=\"btn\" data-language=\"css\">CSS</button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-12 col-md-8\">\r\n      <h2 class=\"subtitle\">Showing Repositories for: <span id=\"repo-search-term\"></span></h2>\r\n      <div id=\"repos-container\" class=\"list-group\">\r\n\r\n      </div>\r\n    </div>\r\n  </main>\r\n\r\n  <script src=\"./assets/js/homepage.js\"></script>\r\n</body>\r\n\r\n</html>"
+        }
+    ]
+}
